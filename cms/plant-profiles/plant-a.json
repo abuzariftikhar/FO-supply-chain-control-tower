@@ -1,0 +1,34 @@
+{
+  "id": "Plant A",
+  "name": "Plant A — Detroit, MI",
+  "region": "NA",
+  "overallSeverity": "bad",
+  "overallTrend": "down",
+  "kpis": [
+    { "id": "pa-util",   "label": "Utilization",        "value": "94",   "unit": "%",   "target": "85%",  "variance": "+9pp",    "varianceSeverity": "bad",  "trend": "up",   "trendLabel": "↑ Line 3 Down",  "severity": "bad"  },
+    { "id": "pa-oee",    "label": "OEE",                "value": "68",   "unit": "%",   "target": "80%",  "variance": "-12pp",   "varianceSeverity": "bad",  "trend": "down", "trendLabel": "↓ Losses",       "severity": "bad"  },
+    { "id": "pa-otif",   "label": "OTIF",               "value": "74",   "unit": "%",   "target": "95%",  "variance": "-21pp",   "varianceSeverity": "bad",  "trend": "down", "trendLabel": "↓ Line Down",    "severity": "bad"  },
+    { "id": "pa-output", "label": "Daily Output",       "value": "880",  "unit": "u",   "target": "1000", "variance": "-120",    "varianceSeverity": "bad",  "trend": "down", "trendLabel": "↓ vs Target",    "severity": "bad"  },
+    { "id": "pa-doh",    "label": "Days on Hand",       "value": "11.2", "unit": "D",   "target": "10D",  "variance": "+1.2D",   "varianceSeverity": "good", "trend": "flat", "trendLabel": "→ Stable",       "severity": "good" },
+    { "id": "pa-dt",     "label": "Downtime",           "value": "14",   "unit": "%",   "target": "< 8%", "variance": "+6pp",    "varianceSeverity": "bad",  "trend": "up",   "trendLabel": "↑ AL3 Down",     "severity": "bad"  },
+    { "id": "pa-labor",  "label": "Labor Coverage",     "value": "84",   "unit": "%",   "target": "100%", "variance": "-16pp",   "varianceSeverity": "bad",  "trend": "down", "trendLabel": "↓ 8 FTE Short",  "severity": "bad"  },
+    { "id": "pa-sched",  "label": "Schedule Adherence", "value": "72",   "unit": "%",   "target": "95%",  "variance": "-23pp",   "varianceSeverity": "bad",  "trend": "down", "trendLabel": "↓ Line Impact",  "severity": "bad"  }
+  ],
+  "constraints": [
+    { "id": "pa-c1", "label": "Assembly Line 3 Down",        "detail": "Mechanical failure since 06:14. MTTR est. 4–6 hours. 14% utilization lost.",     "severity": "high" },
+    { "id": "pa-c2", "label": "Labor Shortage — Day Shift",  "detail": "8 FTE short (3 sick, 5 training). Overtime approved but capacity still limited.", "severity": "high" },
+    { "id": "pa-c3", "label": "Sole Source Supplier Risk",   "detail": "Supplier Alpha LT extended to 28D. No alternate. 3 product lines at risk.",      "severity": "medium" }
+  ],
+  "trend": {
+    "labels": ["Jan 2","Jan 3","Jan 4","Jan 5","Jan 6","Jan 7","Jan 8","Jan 9","Jan 10","Jan 11","Jan 12","Jan 13","Jan 14","Jan 15"],
+    "utilization": [88, 87, 87, 88, 89, 90, 91, 92, 92, 93, 93, 94, 94, 94],
+    "oee":         [80, 80, 79, 79, 78, 77, 76, 75, 74, 72, 71, 70, 69, 68],
+    "otif":        [90, 89, 89, 88, 87, 86, 85, 83, 81, 79, 77, 76, 75, 74]
+  },
+  "riskDecomposition": [
+    { "category": "Capacity",  "score": 92, "severity": "bad"  },
+    { "category": "Materials", "score": 45, "severity": "warn" },
+    { "category": "Quality",   "score": 30, "severity": "good" },
+    { "category": "Service",   "score": 78, "severity": "bad"  }
+  ]
+}

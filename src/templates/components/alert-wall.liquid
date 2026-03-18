@@ -1,0 +1,21 @@
+<section class="alert-wall" id="alert-wall">
+  <div class="alert-wall__header">
+    <h2 class="alert-wall__title">⚡ Alert Wall</h2>
+    <span class="alert-wall__count badge badge--bad">{{ alertGroups | map: 'alerts' | sum: 'size' }} Active</span>
+  </div>
+  <div class="alert-wall__groups">
+    {% for group in alertGroups %}
+      <div class="alert-group alert-group--{{ group.severity }}">
+        <div class="alert-group__header">
+          <span class="alert-group__label">{{ group.label }}</span>
+          <span class="alert-group__count">{{ group.alerts.size }}</span>
+        </div>
+        <div class="alert-group__cards">
+          {% for alert in group.alerts %}
+            {% render 'partials/alert-card', alert: alert %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

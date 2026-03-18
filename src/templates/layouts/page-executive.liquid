@@ -1,0 +1,25 @@
+<div class="page page--executive">
+  {% render 'components/alert-wall', alertGroups: alertGroups %}
+
+  {% render 'components/kpi-grid', kpis: kpis %}
+
+  <div class="content-section">
+    <div class="content-section__primary">
+      {% render 'components/panel', title: 'Decision Actions', id: 'actions-panel' %}
+      {% for action in actions %}
+        {% render 'partials/action-item', action: action %}
+      {% endfor %}
+      </div>
+
+      {% render 'components/panel', title: 'Revenue Waterfall', id: 'waterfall-panel' %}
+        {% render 'partials/chart-container', chart: waterfallChart %}
+      </div>
+    </div>
+
+    <div class="content-section__secondary">
+      {% render 'components/panel', title: 'Network Capacity vs Demand', id: 'capacity-chart-panel' %}
+        {% render 'partials/chart-container', chart: capacityChart %}
+      </div>
+    </div>
+  </div>
+</div>

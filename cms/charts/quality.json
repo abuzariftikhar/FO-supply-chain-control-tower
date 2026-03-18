@@ -1,0 +1,42 @@
+{
+  "id": "quality",
+  "type": "line",
+  "title": "Quality Metrics — First Pass Yield",
+  "description": "First pass yield % by plant over 14 days",
+  "labels": ["Jan 2","Jan 3","Jan 4","Jan 5","Jan 6","Jan 7","Jan 8","Jan 9","Jan 10","Jan 11","Jan 12","Jan 13","Jan 14","Jan 15"],
+  "datasets": [
+    {
+      "label": "Plant A",
+      "data": [96, 95, 95, 94, 93, 92, 91, 90, 89, 88, 87, 87, 87, 87],
+      "borderColor": "#ef4444",
+      "fill": false,
+      "tension": 0.3
+    },
+    {
+      "label": "Plant B",
+      "data": [94, 94, 93, 93, 93, 93, 93, 93, 93, 93, 93, 93, 93, 93],
+      "borderColor": "#f59e0b",
+      "fill": false,
+      "tension": 0.3
+    },
+    {
+      "label": "Plant C",
+      "data": [97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97, 97],
+      "borderColor": "#10b981",
+      "fill": false,
+      "tension": 0.3
+    },
+    {
+      "label": "Plant D",
+      "data": [96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96],
+      "borderColor": "#3b82f6",
+      "fill": false,
+      "tension": 0.3
+    }
+  ],
+  "options": {
+    "scales": {
+      "y": { "min": 80, "max": 100, "title": { "display": true, "text": "First Pass Yield %" } }
+    }
+  }
+}

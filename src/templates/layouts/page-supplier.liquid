@@ -1,0 +1,19 @@
+<div class="page page--supplier">
+  {% render 'components/kpi-grid', kpis: kpis %}
+
+  <div class="content-section">
+    <div class="content-section__primary">
+      {% render 'components/panel', title: 'Supplier Risk Matrix', id: 'supplier-risk-panel' %}
+        {% render 'partials/chart-container', chart: supplierRiskChart %}
+      </div>
+    </div>
+    <div class="content-section__secondary">
+      {% render 'components/panel', title: 'Supplier Exposure', id: 'supplier-table-panel' %}
+        {% render 'partials/data-table',
+           title: '',
+           columns: supplierColumns,
+           rows: suppliers %}
+      </div>
+    </div>
+  </div>
+</div>

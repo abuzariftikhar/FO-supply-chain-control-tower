@@ -1,0 +1,22 @@
+<div class="page page--service">
+  {% render 'components/kpi-grid', kpis: kpis %}
+
+  <div class="content-section">
+    <div class="content-section__primary">
+      {% render 'components/panel', title: 'OTIF Trend (14D)', id: 'otif-panel' %}
+        {% render 'partials/chart-container', chart: otifChart %}
+      </div>
+      {% render 'components/panel', title: 'Backorder Trend', id: 'backorder-panel' %}
+        {% render 'partials/chart-container', chart: backorderChart %}
+      </div>
+    </div>
+    <div class="content-section__secondary">
+      {% render 'components/panel', title: 'Orders at Risk', id: 'orders-panel' %}
+        {% render 'partials/data-table',
+           title: '',
+           columns: orderColumns,
+           rows: orders %}
+      </div>
+    </div>
+  </div>
+</div>

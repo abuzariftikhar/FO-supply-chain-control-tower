@@ -1,0 +1,20 @@
+<div class="page page--capacity">
+  {% render 'components/kpi-grid', kpis: kpis %}
+
+  {% render 'components/panel', title: 'Capacity Heatmap — Plant × Metric', id: 'heatmap-panel' %}
+    {% render 'partials/heatmap-grid', heatmap: heatmap %}
+  </div>
+
+  <div class="content-section">
+    <div class="content-section__primary">
+      {% render 'components/panel', title: 'Demand vs Capacity (14D)', id: 'demand-capacity-panel' %}
+        {% render 'partials/chart-container', chart: demandCapacityChart %}
+      </div>
+    </div>
+    <div class="content-section__secondary">
+      {% render 'components/panel', title: 'Schedule Adherence', id: 'schedule-panel' %}
+        {% render 'partials/chart-container', chart: scheduleChart %}
+      </div>
+    </div>
+  </div>
+</div>

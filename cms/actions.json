@@ -1,0 +1,46 @@
+{
+  "actions": [
+    {
+      "id": "action-001",
+      "priority": 1,
+      "severity": "bad",
+      "title": "Reroute Plant A Orders to Plant C",
+      "description": "Assembly Line 3 down. 8 priority orders need immediate rerouting to prevent SLA breach.",
+      "impact": "$2.4M revenue protection",
+      "deadline": "Today by 12:00",
+      "owner": "Operations Manager",
+      "actions": [
+        { "type": "drilldown", "label": "View Plant A Status", "target": "plant?id=Plant A" },
+        { "type": "navigate",  "label": "Open Ops Drilldown",  "target": "ops" }
+      ]
+    },
+    {
+      "id": "action-002",
+      "priority": 2,
+      "severity": "bad",
+      "title": "Expedite Supplier Alpha PO-5532",
+      "description": "Critical raw material shortage at Plant C. Stock projected to deplete in 72 hours.",
+      "impact": "Production continuity for 3 product lines",
+      "deadline": "Today by 17:00",
+      "owner": "Procurement Lead",
+      "actions": [
+        { "type": "navigate",  "label": "View Supplier Page",   "target": "supplier" },
+        { "type": "external",  "label": "Contact Supplier Alpha","target": "https://supplier.alpha.com/portal" }
+      ]
+    },
+    {
+      "id": "action-003",
+      "priority": 3,
+      "severity": "warn",
+      "title": "Pre-Build Buffer for Plant D Maintenance",
+      "description": "Planned 8-hour maintenance window in 7 days. Coordinate pre-build of 240 units with Plant B.",
+      "impact": "Avoid 240-unit production shortfall",
+      "deadline": "2024-01-19 (Fri)",
+      "owner": "Production Planner",
+      "actions": [
+        { "type": "drilldown", "label": "View Plant D",      "target": "plant?id=Plant D" },
+        { "type": "navigate",  "label": "View Ops Schedule", "target": "ops" }
+      ]
+    }
+  ]
+}

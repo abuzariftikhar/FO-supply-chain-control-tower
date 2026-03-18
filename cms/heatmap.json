@@ -1,0 +1,49 @@
+{
+  "metrics": ["Util%", "OEE", "Downtime", "Gap", "Output", "Risk"],
+  "rows": [
+    {
+      "plant": "Plant A",
+      "cells": [
+        { "metric": "Util%",    "value": "94%",  "severity": "bad",  "tooltip": "Above 90% threshold — critical overload" },
+        { "metric": "OEE",      "value": "68%",  "severity": "bad",  "tooltip": "Below 75% target — significant losses" },
+        { "metric": "Downtime", "value": "14%",  "severity": "bad",  "tooltip": "Assembly Line 3 down — 14% downtime" },
+        { "metric": "Gap",      "value": "-120", "severity": "bad",  "tooltip": "120 units below daily target" },
+        { "metric": "Output",   "value": "880",  "severity": "warn", "tooltip": "880 units vs 1000 target" },
+        { "metric": "Risk",     "value": "HIGH", "severity": "bad",  "tooltip": "High composite risk score" }
+      ]
+    },
+    {
+      "plant": "Plant B",
+      "cells": [
+        { "metric": "Util%",    "value": "78%",  "severity": "warn", "tooltip": "Slightly below 80% optimal range" },
+        { "metric": "OEE",      "value": "79%",  "severity": "warn", "tooltip": "Near 80% target — monitor closely" },
+        { "metric": "Downtime", "value": "5%",   "severity": "good", "tooltip": "Within acceptable 8% threshold" },
+        { "metric": "Gap",      "value": "-22",  "severity": "warn", "tooltip": "22 units below daily target" },
+        { "metric": "Output",   "value": "756",  "severity": "good", "tooltip": "756 units vs 778 target" },
+        { "metric": "Risk",     "value": "MED",  "severity": "warn", "tooltip": "Medium composite risk score" }
+      ]
+    },
+    {
+      "plant": "Plant C",
+      "cells": [
+        { "metric": "Util%",    "value": "62%",  "severity": "good", "tooltip": "18% spare capacity available" },
+        { "metric": "OEE",      "value": "85%",  "severity": "good", "tooltip": "Above 80% target — performing well" },
+        { "metric": "Downtime", "value": "2%",   "severity": "good", "tooltip": "Excellent — well below threshold" },
+        { "metric": "Gap",      "value": "+45",  "severity": "good", "tooltip": "45 units above daily target" },
+        { "metric": "Output",   "value": "645",  "severity": "good", "tooltip": "645 units vs 600 target" },
+        { "metric": "Risk",     "value": "LOW",  "severity": "good", "tooltip": "Low composite risk score" }
+      ]
+    },
+    {
+      "plant": "Plant D",
+      "cells": [
+        { "metric": "Util%",    "value": "81%",  "severity": "good", "tooltip": "Near optimal 80–85% range" },
+        { "metric": "OEE",      "value": "82%",  "severity": "good", "tooltip": "Above 80% target" },
+        { "metric": "Downtime", "value": "6%",   "severity": "good", "tooltip": "Within acceptable threshold" },
+        { "metric": "Gap",      "value": "+10",  "severity": "good", "tooltip": "Slightly above daily target" },
+        { "metric": "Output",   "value": "510",  "severity": "good", "tooltip": "510 units vs 500 target" },
+        { "metric": "Risk",     "value": "LOW",  "severity": "good", "tooltip": "Planned maintenance noted — low risk otherwise" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+<div class="badge badge--{{ alert.severity }}">
+  {% if alert.severity == 'bad' %}
+    CRITICAL
+  {% elsif alert.severity == 'warn' %}
+    WARNING
+  {% elsif alert.severity == 'info' %}
+    INFO
+  {% else %}
+    OK
+  {% endif %}
+</div>

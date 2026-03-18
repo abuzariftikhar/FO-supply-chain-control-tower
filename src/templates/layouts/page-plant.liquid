@@ -1,0 +1,50 @@
+<div class="page page--plant">
+  <div class="plant-selector">
+    {% for plantOption in plantOptions %}
+      <button class="plant-pill {% if plantOption.id == plant.id %}plant-pill--active{% endif %}"
+              data-plant="{{ plantOption.id }}">
+        <span class="plant-pill__badge badge badge--{{ plantOption.overallSeverity }}"></span>
+        {{ plantOption.id }}
+      </button>
+    {% endfor %}
+  </div>
+
+  {% render 'partials/plant-header', plant: plant %}
+
+  {% render 'components/kpi-grid', kpis: plant.kpis %}
+
+  <div class="content-section">
+    <div class="content-section__primary">
+      {% render 'components/panel', title: 'Performance Trends (14D)', id: 'plant-trend-panel' %}
+        <canvas id="chart-plant-trend" data-plant="{{ plant.id }}"></canvas>
+      </div>
+    </div>
+
+    <div class="content-section__secondary">
+      {% render 'components/panel', title: 'Constraints & Risks', id: 'constraints-panel' %}
+        {% for constraint in plant.constraints %}
+          <div class="constraint-item constraint-item--{{ constraint.severity }}">
+            <div class="constraint-item__header">
+              <span class="badge badge--{{ constraint.severity }}">{{ constraint.severity }}</span>
+              <strong>{{ constraint.label }}</strong>
+            </div>
+            <p class="constraint-item__detail">{{ constraint.detail }}</p>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% render 'components/panel', title: 'Risk Decomposition', id: 'risk-panel' %}
+        {% for risk in plant.riskDecomposition %}
+          <div class="risk-bar">
+            <span class="risk-bar__label">{{ risk.category }}</span>
+            <div class="risk-bar__track">
+              <div class="risk-bar__fill risk-bar__fill--{{ risk.severity }}"
+                   style="width: {{ risk.score }}%"></div>
+            </div>
+            <span class="risk-bar__score risk-bar__score--{{ risk.severity }}">{{ risk.score }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>

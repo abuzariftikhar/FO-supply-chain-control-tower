@@ -1,0 +1,36 @@
+<article class="alert-card alert-card--{{ alert.severity }}" data-id="{{ alert.id }}" data-drill="{{ alert.drillTo }}">
+  <div class="alert-card__header">
+    <div class="alert-card__badge">
+      {% render 'partials/badge', alert: alert %}
+    </div>
+    <div class="alert-card__meta">
+      <span class="alert-card__plant">🏭 {{ alert.plant }}</span>
+      <span class="alert-card__horizon">⏱ {{ alert.horizon }}</span>
+      <span class="alert-card__kpi">📊 {{ alert.kpi }}</span>
+    </div>
+  </div>
+
+  <h3 class="alert-card__title">{{ alert.title }}</h3>
+  <p class="alert-card__impact">💰 {{ alert.impact }}</p>
+
+  <div class="alert-card__tags">
+    {% for tag in alert.tags %}
+      <span class="chip chip--{{ alert.severity }}">{{ tag }}</span>
+    {% endfor %}
+  </div>
+
+  <div class="alert-card__suggestion">
+    <strong>💡 Suggested Action:</strong> {{ alert.suggestion }}
+  </div>
+
+  <div class="alert-card__actions">
+    {% for action in alert.ruleActions %}
+      <button class="btn {% if forloop.index0 == 0 %}btn--primary{% else %}btn--secondary{% endif %}"
+              data-type="{{ action.type }}"
+              data-target="{{ action.target }}">
+        {% if action.type == 'drilldown' %}🔍{% elsif action.type == 'navigate' %}📍{% else %}🔗{% endif %}
+        {{ action.label }}
+      </button>
+    {% endfor %}
+  </div>
+</article>

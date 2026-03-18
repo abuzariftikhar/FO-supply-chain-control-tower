@@ -1,0 +1,15 @@
+{
+  "id": "aging",
+  "type": "bar",
+  "title": "Inventory Aging",
+  "description": "Inventory by age bucket across network",
+  "labels": ["0–7D", "8–14D", "15–30D", "31–60D", "60D+"],
+  "datasets": [
+    {
+      "label": "Units",
+      "data": [4200, 2800, 1500, 800, 320],
+      "backgroundColor": ["#10b981", "#3b82f6", "#f59e0b", "#ef4444", "#7c3aed"],
+      "borderWidth": 0
+    }
+  ]
+}

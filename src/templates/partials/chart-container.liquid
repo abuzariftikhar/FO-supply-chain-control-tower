@@ -1,0 +1,16 @@
+<div class="chart-container" data-chart-id="{{ chart.id }}">
+  {% if chart.title %}
+    <div class="chart-container__header">
+      <h3 class="chart-container__title">{{ chart.title }}</h3>
+      {% if chart.description %}
+        <p class="chart-container__description">{{ chart.description }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+  <div class="chart-container__canvas-wrapper">
+    <canvas id="chart-{{ chart.id }}"
+            data-type="{{ chart.type }}"
+            data-config="{{ chart | json | escape }}">
+    </canvas>
+  </div>
+</div>

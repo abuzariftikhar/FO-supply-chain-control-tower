@@ -1,0 +1,34 @@
+{
+  "id": "Plant B",
+  "name": "Plant B — Columbus, OH",
+  "region": "NA",
+  "overallSeverity": "warn",
+  "overallTrend": "flat",
+  "kpis": [
+    { "id": "pb-util",   "label": "Utilization",        "value": "78",   "unit": "%",   "target": "85%",  "variance": "-7pp",    "varianceSeverity": "warn", "trend": "flat", "trendLabel": "→ Stable",         "severity": "warn" },
+    { "id": "pb-oee",    "label": "OEE",                "value": "79",   "unit": "%",   "target": "80%",  "variance": "-1pp",    "varianceSeverity": "warn", "trend": "up",   "trendLabel": "↑ Improving",      "severity": "warn" },
+    { "id": "pb-otif",   "label": "OTIF",               "value": "71",   "unit": "%",   "target": "95%",  "variance": "-24pp",   "varianceSeverity": "bad",  "trend": "down", "trendLabel": "↓ Key Account Hit", "severity": "bad"  },
+    { "id": "pb-output", "label": "Daily Output",       "value": "756",  "unit": "u",   "target": "778",  "variance": "-22",     "varianceSeverity": "warn", "trend": "flat", "trendLabel": "→ Stable",         "severity": "warn" },
+    { "id": "pb-doh",    "label": "Days on Hand",       "value": "7.5",  "unit": "D",   "target": "10D",  "variance": "-2.5D",   "varianceSeverity": "warn", "trend": "down", "trendLabel": "↓ MB-22 Risk",     "severity": "warn" },
+    { "id": "pb-dt",     "label": "Downtime",           "value": "5",    "unit": "%",   "target": "< 8%", "variance": "-3pp",    "varianceSeverity": "good", "trend": "flat", "trendLabel": "→ Acceptable",     "severity": "good" },
+    { "id": "pb-labor",  "label": "Labor Coverage",     "value": "95",   "unit": "%",   "target": "100%", "variance": "-5pp",    "varianceSeverity": "warn", "trend": "flat", "trendLabel": "→ Skill Gap",      "severity": "warn" },
+    { "id": "pb-sched",  "label": "Schedule Adherence", "value": "88",   "unit": "%",   "target": "95%",  "variance": "-7pp",    "varianceSeverity": "warn", "trend": "up",   "trendLabel": "↑ Recovering",     "severity": "warn" }
+  ],
+  "constraints": [
+    { "id": "pb-c1", "label": "OTIF Below Target",      "detail": "71% OTIF against 95% target. 6 key accounts impacted. SLA breach risk on 3 contracts.", "severity": "high" },
+    { "id": "pb-c2", "label": "Certified Welder Gap",   "detail": "2 certified welders short on WS-W2. Quality output risk on welded assemblies.",           "severity": "medium" },
+    { "id": "pb-c3", "label": "Material Watch — MB-22", "detail": "Metal bracket stock at 7.5 DOH vs 10D safety. Supplier Beta delivery uncertain.",         "severity": "medium" }
+  ],
+  "trend": {
+    "labels": ["Jan 2","Jan 3","Jan 4","Jan 5","Jan 6","Jan 7","Jan 8","Jan 9","Jan 10","Jan 11","Jan 12","Jan 13","Jan 14","Jan 15"],
+    "utilization": [80, 80, 79, 79, 78, 78, 78, 78, 78, 78, 78, 78, 78, 78],
+    "oee":         [75, 76, 76, 77, 77, 78, 78, 78, 79, 79, 79, 79, 79, 79],
+    "otif":        [82, 81, 80, 79, 77, 76, 74, 73, 72, 72, 71, 71, 71, 71]
+  },
+  "riskDecomposition": [
+    { "category": "Capacity",  "score": 35, "severity": "good" },
+    { "category": "Materials", "score": 55, "severity": "warn" },
+    { "category": "Quality",   "score": 48, "severity": "warn" },
+    { "category": "Service",   "score": 82, "severity": "bad"  }
+  ]
+}

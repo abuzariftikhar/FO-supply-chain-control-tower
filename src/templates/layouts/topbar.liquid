@@ -1,0 +1,36 @@
+<header class="topbar">
+  <div class="topbar__brand">
+    <span class="topbar__brand-icon">🏭</span>
+    <div class="topbar__brand-text">
+      <span class="topbar__brand-name">{{ config.brand.name }}</span>
+      <span class="topbar__brand-tagline">{{ config.brand.tagline }}</span>
+    </div>
+  </div>
+
+  <nav class="topbar__nav">
+    {% for tab in config.nav %}
+      <button class="topbar__tab {% if tab.id == activePage %}topbar__tab--active{% endif %}"
+              data-page="{{ tab.id }}">
+        {{ tab.icon }} {{ tab.label }}
+      </button>
+    {% endfor %}
+  </nav>
+
+  <div class="topbar__right">
+    <div class="topbar__filters">
+      {% for filterConfig in filterConfigs %}
+        {% render 'partials/filter-select', filter: filterConfig, activeValue: activeFilters[filterConfig.type] %}
+      {% endfor %}
+    </div>
+
+    <div class="topbar__search">
+      <input class="topbar__search-input" type="search" placeholder="Search plants, alerts, orders…" />
+      <div class="topbar__search-results" id="search-results" hidden></div>
+    </div>
+
+    <div class="topbar__status topbar__status--{{ config.systemStatus.status }}">
+      {% if config.systemStatus.status == 'healthy' %}✅{% elsif config.systemStatus.status == 'watch' %}🔶{% else %}🔴{% endif %}
+      {{ config.systemStatus.label }}
+    </div>
+  </div>
+</header>

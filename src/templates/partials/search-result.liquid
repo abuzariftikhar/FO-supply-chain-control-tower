@@ -1,0 +1,7 @@
+<li class="search-result" data-type="{{ result.type }}" data-page="{{ result.page }}" data-param="{{ result.param }}">
+  <div class="search-result__type">{{ result.type }}</div>
+  <div class="search-result__label">{{ result.label }}</div>
+  {% if result.sublabel %}
+    <div class="search-result__sublabel">{{ result.sublabel }}</div>
+  {% endif %}
+</li>

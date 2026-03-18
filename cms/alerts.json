@@ -1,0 +1,123 @@
+{
+  "alerts": [
+    {
+      "id": "alert-001",
+      "group": "Capacity Risk",
+      "severity": "bad",
+      "title": "Plant A Utilization Critical — Assembly Line 3 Down",
+      "plant": "Plant A",
+      "kpi": "Utilization",
+      "impact": "$2.4M revenue at risk across 14 orders",
+      "horizon": "Today",
+      "tags": ["CRITICAL", "Line Down", "Immediate Action"],
+      "suggestion": "Reroute 8 priority orders to Plant C (18% spare capacity). Escalate maintenance to restore AL3 within 4 hours.",
+      "ruleActions": [
+        { "type": "drilldown", "label": "View Plant A Drilldown", "target": "plant?id=Plant A" },
+        { "type": "navigate",  "label": "Reroute Orders",          "target": "ops" },
+        { "type": "external",  "label": "Open Maintenance Ticket", "target": "https://maintenance.internal/ticket/new" }
+      ],
+      "signals": [
+        { "label": "Assembly Line 3", "value": "Down since 06:14" },
+        { "label": "Affected Orders", "value": "14 orders (ORD-8821 to ORD-8834)" },
+        { "label": "MTTR Estimate",   "value": "4–6 hours" },
+        { "label": "Alt Capacity",    "value": "Plant C: 18% spare" }
+      ],
+      "drillTo": "plant?id=Plant A"
+    },
+    {
+      "id": "alert-002",
+      "group": "Service Risk",
+      "severity": "bad",
+      "title": "OTIF Drop to 71% — 6 Key Accounts Impacted",
+      "plant": "Plant B",
+      "kpi": "OTIF",
+      "impact": "6 key accounts, SLA breach risk on 3 contracts",
+      "horizon": "14D",
+      "tags": ["CRITICAL", "SLA Breach", "Key Accounts"],
+      "suggestion": "Prioritize ORD-7741, ORD-7742 in production schedule. Contact logistics for expedite options on 3 contracts.",
+      "ruleActions": [
+        { "type": "navigate",  "label": "View Service Page",         "target": "service" },
+        { "type": "navigate",  "label": "View Orders at Risk",       "target": "service#orders" },
+        { "type": "external",  "label": "Notify Account Managers",   "target": "https://crm.internal/notify" }
+      ],
+      "signals": [
+        { "label": "OTIF Current",  "value": "71% (target: 95%)" },
+        { "label": "Trend",         "value": "↓ 8pts vs last week" },
+        { "label": "SLA Risk",      "value": "3 contracts in breach window" },
+        { "label": "Key Accounts",  "value": "ACME Corp, TechCo, ManuFacture Ltd" }
+      ],
+      "drillTo": "service"
+    },
+    {
+      "id": "alert-003",
+      "group": "Inventory/Cash Risk",
+      "severity": "warn",
+      "title": "Inventory DOH Deviation — Raw Material Shortage Risk",
+      "plant": "Plant C",
+      "kpi": "DOH",
+      "impact": "Production stoppage risk in 72 hours if not replenished",
+      "horizon": "14D",
+      "tags": ["WARNING", "Stock Risk", "72h Window"],
+      "suggestion": "Expedite PO-5532 from Supplier X. Consider emergency transfer from Plant D warehouse (12-day DOH buffer).",
+      "ruleActions": [
+        { "type": "navigate",  "label": "View Inventory Page",     "target": "inventory" },
+        { "type": "external",  "label": "Expedite PO-5532",        "target": "https://erp.internal/po/5532" },
+        { "type": "drilldown", "label": "Plant D Stock Transfer",  "target": "plant?id=Plant D" }
+      ],
+      "signals": [
+        { "label": "Current DOH",      "value": "3.2 days (target: 10 days)" },
+        { "label": "Critical Material", "value": "Resin compound RC-440" },
+        { "label": "PO ETA",           "value": "PO-5532 ETA: +5 days" },
+        { "label": "Plant D Buffer",   "value": "12 days available" }
+      ],
+      "drillTo": "inventory"
+    },
+    {
+      "id": "alert-004",
+      "group": "Supplier Risk",
+      "severity": "warn",
+      "title": "Supplier Alpha Lead Time Extended — Sole Source Risk",
+      "plant": "Plant A",
+      "kpi": "Supplier Lead Time",
+      "impact": "3 product lines dependent, $850K revenue exposure",
+      "horizon": "30D",
+      "tags": ["WARNING", "Sole Source", "Lead Time"],
+      "suggestion": "Qualify backup supplier Beta (4-week process). Pre-build safety stock for 2 weeks. Negotiate expedite fee with Alpha.",
+      "ruleActions": [
+        { "type": "navigate",  "label": "View Supplier Page",          "target": "supplier" },
+        { "type": "external",  "label": "Contact Supplier Alpha",      "target": "https://supplier.alpha.com/portal" },
+        { "type": "external",  "label": "Initiate Beta Qualification", "target": "https://procurement.internal/qualify" }
+      ],
+      "signals": [
+        { "label": "Supplier Alpha LT", "value": "Extended from 14D to 28D" },
+        { "label": "On-Time Rate",      "value": "62% (down from 91%)" },
+        { "label": "Dependent Lines",   "value": "3 product lines (PA-100, PA-200, PA-300)" },
+        { "label": "Backup Option",     "value": "Supplier Beta (4-week qualification)" }
+      ],
+      "drillTo": "supplier"
+    },
+    {
+      "id": "alert-005",
+      "group": "Capacity Risk",
+      "severity": "info",
+      "title": "Plant D Maintenance Window — Planned Downtime Scheduled",
+      "plant": "Plant D",
+      "kpi": "OEE",
+      "impact": "8-hour planned downtime, 240 units production impact",
+      "horizon": "14D",
+      "tags": ["INFO", "Planned Maintenance", "14D"],
+      "suggestion": "Pre-build 240-unit buffer before maintenance window. Coordinate with Plant B for overflow capacity.",
+      "ruleActions": [
+        { "type": "drilldown", "label": "View Plant D",         "target": "plant?id=Plant D" },
+        { "type": "navigate",  "label": "View Ops Schedule",    "target": "ops" }
+      ],
+      "signals": [
+        { "label": "Maintenance Date", "value": "2024-01-22 (Mon) 00:00–08:00" },
+        { "label": "Units Impact",     "value": "240 units (shift output)" },
+        { "label": "Pre-build Plan",   "value": "Plant B absorbing 120 units" },
+        { "label": "OEE Current",      "value": "82% → expected 71% post-maintenance" }
+      ],
+      "drillTo": "plant?id=Plant D"
+    }
+  ]
+}

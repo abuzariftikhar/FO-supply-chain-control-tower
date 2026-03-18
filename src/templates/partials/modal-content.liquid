@@ -1,0 +1,32 @@
+<div class="modal-content">
+  <div class="modal-content__header">
+    <h2 class="modal-content__title">{{ modal.title }}</h2>
+    {% if modal.subtitle %}
+      <p class="modal-content__subtitle">{{ modal.subtitle }}</p>
+    {% endif %}
+  </div>
+
+  <div class="modal-content__body">
+    {{ modal.body }}
+  </div>
+
+  {% if modal.signals and modal.signals.size > 0 %}
+    <div class="modal-content__signals">
+      <h4 class="modal-content__signals-title">📡 Root Cause Signals</h4>
+      {% for signal in modal.signals %}
+        {% render 'partials/signal-item', signal: signal %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="modal-content__actions">
+    {% for action in modal.actions %}
+      <button class="btn {% if forloop.first %}btn--primary{% else %}btn--secondary{% endif %}"
+              data-type="{{ action.type }}"
+              data-target="{{ action.target }}">
+        {% if action.type == 'drilldown' %}🔍{% elsif action.type == 'navigate' %}📍{% else %}🔗{% endif %}
+        {{ action.label }}
+      </button>
+    {% endfor %}
+  </div>
+</div>
