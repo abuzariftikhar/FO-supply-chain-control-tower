@@ -1,0 +1,25 @@
+<div class="action-item action-item--{{ action.priority }}">
+  <div class="action-item__priority">{{ action.priority }}</div>
+  <div class="action-item__body">
+    <div class="action-item__header">
+      <span class="action-item__title">{{ action.title }}</span>
+      <span class="badge badge--{{ action.severity }}">P{{ action.priority }}</span>
+    </div>
+    <p class="action-item__description">{{ action.description }}</p>
+    <div class="action-item__meta">
+      <span>💰 {{ action.impact }}</span>
+      <span>⏰ {{ action.deadline }}</span>
+      <span>👤 {{ action.owner }}</span>
+    </div>
+    <div class="action-item__actions">
+      {% for btn in action.actions %}
+        <button class="btn btn--sm"
+                data-type="{{ btn.type }}"
+                data-target="{{ btn.target }}">
+          {% if btn.type == 'drilldown' %}🔍{% elsif btn.type == 'navigate' %}📍{% else %}🔗{% endif %}
+          {{ btn.label }}
+        </button>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "id": "supplier-risk",
+  "type": "scatter",
+  "title": "Supplier Risk Matrix",
+  "description": "Supplier on-time performance vs revenue exposure",
+  "labels": ["Suppliers"],
+  "datasets": [
+    {
+      "label": "High Risk",
+      "data": [{ "x": 62, "y": 850 }],
+      "backgroundColor": "#ef4444",
+      "pointRadius": 12
+    },
+    {
+      "label": "Medium Risk",
+      "data": [{ "x": 78, "y": 340 }, { "x": 85, "y": 210 }],
+      "backgroundColor": "#f59e0b",
+      "pointRadius": 10
+    },
+    {
+      "label": "Low Risk",
+      "data": [{ "x": 94, "y": 95 }],
+      "backgroundColor": "#10b981",
+      "pointRadius": 8
+    }
+  ],
+  "options": {
+    "scales": {
+      "x": { "title": { "display": true, "text": "On-Time Delivery %" }, "min": 50, "max": 100 },
+      "y": { "title": { "display": true, "text": "Exposure ($K)" } }
+    }
+  }
+}

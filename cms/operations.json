@@ -1,0 +1,104 @@
+{
+  "downtime": [
+    {
+      "id": "DT-001",
+      "plant": "Plant A",
+      "machine": "Assembly Line 3",
+      "state": "Down",
+      "downtimeHours": 2.3,
+      "reason": "Mechanical failure — conveyor jam",
+      "severity": "bad",
+      "impact": "120 units/hour lost — 14% utilization impact",
+      "mttr": "4–6 hours"
+    },
+    {
+      "id": "DT-002",
+      "plant": "Plant B",
+      "machine": "Welding Station W2",
+      "state": "Idle",
+      "downtimeHours": 0.8,
+      "reason": "Operator changeover — material replenishment",
+      "severity": "warn",
+      "impact": "Minor — 25 units delayed",
+      "mttr": "< 1 hour"
+    },
+    {
+      "id": "DT-003",
+      "plant": "Plant D",
+      "machine": "CNC Machine C4",
+      "state": "Running",
+      "downtimeHours": 0,
+      "reason": "Planned maintenance scheduled 2024-01-22",
+      "severity": "info",
+      "impact": "240 units planned impact — buffer being pre-built",
+      "mttr": "8 hours (planned)"
+    }
+  ],
+  "labor": [
+    {
+      "id": "LAB-001",
+      "plant": "Plant A",
+      "shift": "Day Shift",
+      "headcount": 42,
+      "required": 50,
+      "coverage": "short",
+      "severity": "bad",
+      "notes": "8 FTE short — 3 out sick, 5 on training. Overtime requested."
+    },
+    {
+      "id": "LAB-002",
+      "plant": "Plant B",
+      "shift": "Day Shift",
+      "headcount": 38,
+      "required": 40,
+      "coverage": "skill_gap",
+      "severity": "warn",
+      "notes": "2 FTE short on certified welders — quality risk on WS-W2 output."
+    },
+    {
+      "id": "LAB-003",
+      "plant": "Plant C",
+      "shift": "Day Shift",
+      "headcount": 35,
+      "required": 35,
+      "coverage": "full",
+      "severity": "good",
+      "notes": "Fully staffed. Cross-training program running this week."
+    }
+  ],
+  "materials": [
+    {
+      "id": "MAT-001",
+      "plant": "Plant C",
+      "material": "Resin Compound RC-440",
+      "stockDays": 3.2,
+      "safetyStock": 10,
+      "impact": "blocked",
+      "severity": "bad",
+      "supplier": "Supplier Alpha",
+      "notes": "Stock depleting faster than replenishment rate. Expedite PO-5532 immediately."
+    },
+    {
+      "id": "MAT-002",
+      "plant": "Plant B",
+      "material": "Metal Brackets MB-22",
+      "stockDays": 7.5,
+      "safetyStock": 10,
+      "impact": "watch",
+      "severity": "warn",
+      "supplier": "Supplier Beta",
+      "notes": "Stock trending below safety. Lead time uncertainty from Supplier Beta."
+    },
+    {
+      "id": "MAT-003",
+      "plant": "Plant A",
+      "material": "Packaging Materials PM-10",
+      "stockDays": 18.0,
+      "safetyStock": 10,
+      "impact": "ok",
+      "severity": "good",
+      "supplier": "Supplier Delta",
+      "notes": "Well stocked. No issues anticipated."
+    }
+  ]
+}

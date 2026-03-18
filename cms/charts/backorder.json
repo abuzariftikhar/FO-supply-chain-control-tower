@@ -1,0 +1,24 @@
+{
+  "id": "backorder",
+  "type": "bar",
+  "title": "Backorder Trend",
+  "description": "Open backorders over time",
+  "labels": ["Jan 2","Jan 3","Jan 4","Jan 5","Jan 6","Jan 7","Jan 8","Jan 9","Jan 10","Jan 11","Jan 12","Jan 13","Jan 14","Jan 15"],
+  "datasets": [
+    {
+      "label": "Backorders",
+      "data": [20, 22, 24, 26, 28, 30, 32, 35, 38, 40, 41, 42, 43, 43],
+      "backgroundColor": "#ef4444",
+      "borderWidth": 0
+    },
+    {
+      "label": "Target (< 20)",
+      "data": [20,20,20,20,20,20,20,20,20,20,20,20,20,20],
+      "borderColor": "#10b981",
+      "borderWidth": 1,
+      "type": "line",
+      "fill": false,
+      "pointRadius": 0
+    }
+  ]
+}

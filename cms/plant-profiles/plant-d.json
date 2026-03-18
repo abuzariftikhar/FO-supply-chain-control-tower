@@ -1,0 +1,34 @@
+{
+  "id": "Plant D",
+  "name": "Plant D — Tokyo, JP",
+  "region": "APAC",
+  "overallSeverity": "good",
+  "overallTrend": "flat",
+  "kpis": [
+    { "id": "pd-util",   "label": "Utilization",        "value": "81",   "unit": "%",   "target": "85%",  "variance": "-4pp",   "varianceSeverity": "warn", "trend": "flat", "trendLabel": "→ Stable",         "severity": "warn" },
+    { "id": "pd-oee",    "label": "OEE",                "value": "82",   "unit": "%",   "target": "80%",  "variance": "+2pp",   "varianceSeverity": "good", "trend": "flat", "trendLabel": "→ Above Target",   "severity": "good" },
+    { "id": "pd-otif",   "label": "OTIF",               "value": "96",   "unit": "%",   "target": "95%",  "variance": "+1pp",   "varianceSeverity": "good", "trend": "flat", "trendLabel": "→ Above Target",   "severity": "good" },
+    { "id": "pd-output", "label": "Daily Output",       "value": "510",  "unit": "u",   "target": "500",  "variance": "+10",    "varianceSeverity": "good", "trend": "flat", "trendLabel": "→ On Track",       "severity": "good" },
+    { "id": "pd-doh",    "label": "Days on Hand",       "value": "12.0", "unit": "D",   "target": "10D",  "variance": "+2D",    "varianceSeverity": "good", "trend": "flat", "trendLabel": "→ Healthy Buffer",  "severity": "good" },
+    { "id": "pd-dt",     "label": "Downtime",           "value": "6",    "unit": "%",   "target": "< 8%", "variance": "-2pp",   "varianceSeverity": "good", "trend": "flat", "trendLabel": "→ Acceptable",     "severity": "good" },
+    { "id": "pd-labor",  "label": "Labor Coverage",     "value": "100",  "unit": "%",   "target": "100%", "variance": "0pp",    "varianceSeverity": "good", "trend": "flat", "trendLabel": "→ Fully Staffed",  "severity": "good" },
+    { "id": "pd-sched",  "label": "Schedule Adherence", "value": "94",   "unit": "%",   "target": "95%",  "variance": "-1pp",   "varianceSeverity": "warn", "trend": "flat", "trendLabel": "→ Near Target",    "severity": "warn" }
+  ],
+  "constraints": [
+    { "id": "pd-c1", "label": "Planned Maintenance Window", "detail": "8-hour maintenance 2024-01-22 00:00–08:00. 240 units impact. Pre-build coordinated.", "severity": "low"    },
+    { "id": "pd-c2", "label": "Schedule Adherence Watch",   "detail": "94% vs 95% target. One missed run would breach KPI. Monitor closely.",                "severity": "low"    },
+    { "id": "pd-c3", "label": "Utilization Opportunity",    "detail": "Running at 81% — could absorb 4% more capacity if needed by network.",                "severity": "low"    }
+  ],
+  "trend": {
+    "labels": ["Jan 2","Jan 3","Jan 4","Jan 5","Jan 6","Jan 7","Jan 8","Jan 9","Jan 10","Jan 11","Jan 12","Jan 13","Jan 14","Jan 15"],
+    "utilization": [82, 82, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81, 81],
+    "oee":         [81, 81, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82, 82],
+    "otif":        [95, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96, 96]
+  },
+  "riskDecomposition": [
+    { "category": "Capacity",  "score": 22, "severity": "good" },
+    { "category": "Materials", "score": 18, "severity": "good" },
+    { "category": "Quality",   "score": 15, "severity": "good" },
+    { "category": "Service",   "score": 20, "severity": "good" }
+  ]
+}

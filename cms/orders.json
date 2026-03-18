@@ -1,0 +1,52 @@
+{
+  "orders": [
+    {
+      "id": "ORD-8821",
+      "customer": "ACME Corp",
+      "part": "PA-100-A",
+      "qty": 500,
+      "dueDate": "Today",
+      "plant": "Plant A",
+      "risk": "Line Down — AL3",
+      "status": "at_risk",
+      "severity": "bad",
+      "value": "$185,000"
+    },
+    {
+      "id": "ORD-7741",
+      "customer": "TechCo Industries",
+      "part": "PB-220-C",
+      "qty": 320,
+      "dueDate": "Tomorrow",
+      "plant": "Plant B",
+      "risk": "OTIF Degradation",
+      "status": "at_risk",
+      "severity": "bad",
+      "value": "$94,400"
+    },
+    {
+      "id": "ORD-9102",
+      "customer": "GlobalMfg Ltd",
+      "part": "PC-305-B",
+      "qty": 150,
+      "dueDate": "This Week",
+      "plant": "Plant C",
+      "risk": "Material Shortage",
+      "status": "watch",
+      "severity": "warn",
+      "value": "$67,500"
+    },
+    {
+      "id": "ORD-6654",
+      "customer": "ManuFacture Ltd",
+      "part": "PA-100-B",
+      "qty": 280,
+      "dueDate": "Tomorrow",
+      "plant": "Plant A",
+      "risk": "Capacity Constraint",
+      "status": "watch",
+      "severity": "warn",
+      "value": "$103,600"
+    }
+  ]
+}

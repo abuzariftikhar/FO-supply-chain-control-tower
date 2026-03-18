@@ -1,0 +1,19 @@
+<div class="page page--inventory">
+  {% render 'components/kpi-grid', kpis: kpis %}
+
+  <div class="content-section">
+    <div class="content-section__primary">
+      {% render 'components/panel', title: 'Days on Hand Trend', id: 'doh-panel' %}
+        {% render 'partials/chart-container', chart: dohChart %}
+      </div>
+    </div>
+    <div class="content-section__secondary">
+      {% render 'components/panel', title: 'Inventory Aging', id: 'aging-panel' %}
+        {% render 'partials/chart-container', chart: agingChart %}
+      </div>
+      {% render 'components/panel', title: 'WIP by Plant', id: 'wip-panel' %}
+        {% render 'partials/chart-container', chart: wipChart %}
+      </div>
+    </div>
+  </div>
+</div>

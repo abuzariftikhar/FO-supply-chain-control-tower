@@ -1,0 +1,38 @@
+<div class="page page--ops">
+  <div class="content-section">
+    <div class="content-section__col">
+      {% render 'components/panel', title: 'Machine Downtime', id: 'downtime-panel' %}
+        {% render 'partials/data-table',
+           title: '',
+           columns: downtimeColumns,
+           rows: downtime %}
+      </div>
+    </div>
+
+    <div class="content-section__col">
+      {% render 'components/panel', title: 'Labor Coverage', id: 'labor-panel' %}
+        {% render 'partials/data-table',
+           title: '',
+           columns: laborColumns,
+           rows: labor %}
+      </div>
+    </div>
+
+    <div class="content-section__col">
+      {% render 'components/panel', title: 'Materials Status', id: 'materials-panel' %}
+        {% render 'partials/data-table',
+           title: '',
+           columns: materialColumns,
+           rows: materials %}
+      </div>
+    </div>
+  </div>
+
+  <div class="content-section">
+    <div class="content-section__primary">
+      {% render 'components/panel', title: 'Quality Metrics', id: 'quality-panel' %}
+        {% render 'partials/chart-container', chart: qualityChart %}
+      </div>
+    </div>
+  </div>
+</div>

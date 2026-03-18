@@ -1,0 +1,11 @@
+<div class="filter-select">
+  <label class="filter-select__label" for="filter-{{ filter.type }}">{{ filter.label }}</label>
+  <select class="filter-select__input" id="filter-{{ filter.type }}" name="{{ filter.type }}">
+    {% for option in filter.options %}
+      <option value="{{ option.value }}"
+              {% if option.value == activeValue %}selected{% endif %}>
+        {{ option.label }}
+      </option>
+    {% endfor %}
+  </select>
+</div>

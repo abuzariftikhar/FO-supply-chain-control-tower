@@ -1,0 +1,32 @@
+{
+  "id": "otif-trend",
+  "type": "line",
+  "title": "OTIF Trend — 14 Day History",
+  "description": "Network-wide OTIF performance vs target",
+  "labels": ["Jan 2","Jan 3","Jan 4","Jan 5","Jan 6","Jan 7","Jan 8","Jan 9","Jan 10","Jan 11","Jan 12","Jan 13","Jan 14","Jan 15"],
+  "datasets": [
+    {
+      "label": "OTIF %",
+      "data": [92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 88, 87, 87, 87],
+      "borderColor": "#ef4444",
+      "backgroundColor": "rgba(239,68,68,0.1)",
+      "borderWidth": 2,
+      "fill": true,
+      "tension": 0.3
+    },
+    {
+      "label": "Target (95%)",
+      "data": [95,95,95,95,95,95,95,95,95,95,95,95,95,95],
+      "borderColor": "#10b981",
+      "borderWidth": 1,
+      "borderDash": [5,5],
+      "fill": false,
+      "pointRadius": 0
+    }
+  ],
+  "options": {
+    "scales": {
+      "y": { "min": 60, "max": 100, "title": { "display": true, "text": "OTIF %" } }
+    }
+  }
+}

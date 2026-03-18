@@ -1,0 +1,31 @@
+<div class="data-table-wrapper">
+  {% if title %}
+    <h3 class="data-table__title">{{ title }}</h3>
+  {% endif %}
+  <table class="data-table">
+    <thead>
+      <tr>
+        {% for col in columns %}
+          <th class="data-table__th">{{ col.label }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in rows %}
+        <tr class="data-table__row data-table__row--{{ row.severity }}">
+          {% for col in columns %}
+            <td class="data-table__td">
+              {% if col.field == 'status' %}
+                <span class="status-pill status-pill--{{ row.severity }}">{{ row[col.field] }}</span>
+              {% elsif col.field == 'severity' %}
+                <span class="badge badge--{{ row.severity }}">{{ row.severity }}</span>
+              {% else %}
+                {{ row[col.field] }}
+              {% endif %}
+            </td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

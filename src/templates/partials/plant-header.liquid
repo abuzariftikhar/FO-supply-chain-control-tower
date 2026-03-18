@@ -1,0 +1,15 @@
+<div class="plant-header plant-header--{{ plant.overallSeverity }}">
+  <div class="plant-header__info">
+    <h2 class="plant-header__name">{{ plant.name }}</h2>
+    <div class="plant-header__meta">
+      <span class="chip">{{ plant.region }}</span>
+      <span class="badge badge--{{ plant.overallSeverity }}">
+        {% if plant.overallSeverity == 'bad' %}CRITICAL{% elsif plant.overallSeverity == 'warn' %}WATCH{% elsif plant.overallSeverity == 'good' %}HEALTHY{% else %}INFO{% endif %}
+      </span>
+      <span class="trend-indicator trend-indicator--{{ plant.overallTrend }}">
+        {% if plant.overallTrend == 'up' %}↑{% elsif plant.overallTrend == 'down' %}↓{% else %}→{% endif %}
+        Overall Trend
+      </span>
+    </div>
+  </div>
+</div>

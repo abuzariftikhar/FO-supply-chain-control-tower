@@ -1,0 +1,29 @@
+{
+  "id": "wip",
+  "type": "bar",
+  "title": "Work In Progress (WIP) by Plant",
+  "description": "Current WIP levels vs target",
+  "labels": ["Plant A", "Plant B", "Plant C", "Plant D"],
+  "datasets": [
+    {
+      "label": "WIP Units",
+      "data": [380, 220, 145, 175],
+      "backgroundColor": ["#ef4444", "#f59e0b", "#10b981", "#10b981"],
+      "borderWidth": 0
+    },
+    {
+      "label": "WIP Target",
+      "data": [250, 200, 150, 160],
+      "borderColor": "#6b7280",
+      "borderWidth": 1,
+      "type": "line",
+      "fill": false,
+      "pointRadius": 4
+    }
+  ],
+  "options": {
+    "scales": {
+      "y": { "title": { "display": true, "text": "Units" } }
+    }
+  }
+}

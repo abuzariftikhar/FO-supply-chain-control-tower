@@ -1,0 +1,41 @@
+{
+  "brand": {
+    "name": "Supply Chain Control Tower",
+    "tagline": "Real-time operational intelligence",
+    "version": "2.1.0"
+  },
+  "nav": [
+    { "id": "exec",      "label": "Executive",   "icon": "📊" },
+    { "id": "capacity",  "label": "Capacity",    "icon": "🏭" },
+    { "id": "service",   "label": "Service",     "icon": "📦" },
+    { "id": "inventory", "label": "Inventory",   "icon": "🗃️" },
+    { "id": "supplier",  "label": "Supplier",    "icon": "🤝" },
+    { "id": "ops",       "label": "Ops Drilldown","icon": "⚙️" },
+    { "id": "plant",     "label": "Plant Drilldown","icon": "🔍" }
+  ],
+  "systemStatus": {
+    "status": "healthy",
+    "label": "All Systems Operational",
+    "lastUpdated": "2024-01-15T08:30:00Z"
+  },
+  "filterOptions": {
+    "plant": [
+      { "value": "All",     "label": "All Plants" },
+      { "value": "Plant A", "label": "Plant A" },
+      { "value": "Plant B", "label": "Plant B" },
+      { "value": "Plant C", "label": "Plant C" },
+      { "value": "Plant D", "label": "Plant D" }
+    ],
+    "region": [
+      { "value": "All",  "label": "All Regions" },
+      { "value": "NA",   "label": "North America" },
+      { "value": "EU",   "label": "Europe" },
+      { "value": "APAC", "label": "Asia Pacific" }
+    ],
+    "horizon": [
+      { "value": "Today", "label": "Today" },
+      { "value": "14D",   "label": "14 Days" },
+      { "value": "30D",   "label": "30 Days" }
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "suppliers": [
+    {
+      "id": "SUP-001",
+      "name": "Supplier Alpha",
+      "part": "Resin RC-440",
+      "leadTime": "28D",
+      "onTime": "62%",
+      "riskLevel": "high",
+      "severity": "bad",
+      "exposure": "$850,000",
+      "alternates": 0,
+      "notes": "Sole source — lead time extended from 14D to 28D. Quality issues reported in last 2 shipments."
+    },
+    {
+      "id": "SUP-002",
+      "name": "Supplier Beta",
+      "part": "Metal Brackets MB-22",
+      "leadTime": "14D",
+      "onTime": "78%",
+      "riskLevel": "medium",
+      "severity": "warn",
+      "exposure": "$340,000",
+      "alternates": 1,
+      "notes": "On-time delivery declining. One alternate available (Supplier Gamma — 3-week lead time)."
+    },
+    {
+      "id": "SUP-003",
+      "name": "Supplier Gamma",
+      "part": "Electronic Components EC-5x",
+      "leadTime": "21D",
+      "onTime": "85%",
+      "riskLevel": "medium",
+      "severity": "warn",
+      "exposure": "$210,000",
+      "alternates": 2,
+      "notes": "Lead time variance high. 2 alternates available. Monitor closely."
+    },
+    {
+      "id": "SUP-004",
+      "name": "Supplier Delta",
+      "part": "Packaging Materials PM-10",
+      "leadTime": "7D",
+      "onTime": "94%",
+      "riskLevel": "low",
+      "severity": "good",
+      "exposure": "$95,000",
+      "alternates": 3,
+      "notes": "Performing well. Strong on-time record. Multiple alternates available."
+    }
+  ]
+}

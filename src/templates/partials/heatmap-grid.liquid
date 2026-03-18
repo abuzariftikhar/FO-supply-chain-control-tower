@@ -1,0 +1,22 @@
+<div class="heatmap-grid">
+  <table class="heatmap-table">
+    <thead>
+      <tr>
+        <th class="heatmap-table__corner">Plant</th>
+        {% for metric in heatmap.metrics %}
+          <th class="heatmap-table__metric">{{ metric }}</th>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in heatmap.rows %}
+        <tr class="heatmap-table__row">
+          <td class="heatmap-table__plant">{{ row.plant }}</td>
+          {% for cell in row.cells %}
+            {% render 'partials/heatmap-cell', cell: cell %}
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

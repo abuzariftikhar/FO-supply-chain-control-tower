@@ -1,0 +1,34 @@
+{
+  "id": "Plant C",
+  "name": "Plant C — Munich, DE",
+  "region": "EU",
+  "overallSeverity": "warn",
+  "overallTrend": "flat",
+  "kpis": [
+    { "id": "pc-util",   "label": "Utilization",        "value": "62",   "unit": "%",   "target": "85%",  "variance": "-23pp",  "varianceSeverity": "info", "trend": "flat", "trendLabel": "→ Spare Cap",      "severity": "info" },
+    { "id": "pc-oee",    "label": "OEE",                "value": "85",   "unit": "%",   "target": "80%",  "variance": "+5pp",   "varianceSeverity": "good", "trend": "up",   "trendLabel": "↑ Above Target",   "severity": "good" },
+    { "id": "pc-otif",   "label": "OTIF",               "value": "93",   "unit": "%",   "target": "95%",  "variance": "-2pp",   "varianceSeverity": "warn", "trend": "flat", "trendLabel": "→ Near Target",    "severity": "warn" },
+    { "id": "pc-output", "label": "Daily Output",       "value": "645",  "unit": "u",   "target": "600",  "variance": "+45",    "varianceSeverity": "good", "trend": "up",   "trendLabel": "↑ Above Target",   "severity": "good" },
+    { "id": "pc-doh",    "label": "Days on Hand",       "value": "3.2",  "unit": "D",   "target": "10D",  "variance": "-6.8D",  "varianceSeverity": "bad",  "trend": "down", "trendLabel": "↓ RC-440 Crisis",  "severity": "bad"  },
+    { "id": "pc-dt",     "label": "Downtime",           "value": "2",    "unit": "%",   "target": "< 8%", "variance": "-6pp",   "varianceSeverity": "good", "trend": "flat", "trendLabel": "→ Excellent",      "severity": "good" },
+    { "id": "pc-labor",  "label": "Labor Coverage",     "value": "100",  "unit": "%",   "target": "100%", "variance": "0pp",    "varianceSeverity": "good", "trend": "flat", "trendLabel": "→ Fully Staffed",  "severity": "good" },
+    { "id": "pc-sched",  "label": "Schedule Adherence", "value": "96",   "unit": "%",   "target": "95%",  "variance": "+1pp",   "varianceSeverity": "good", "trend": "up",   "trendLabel": "↑ Above Target",   "severity": "good" }
+  ],
+  "constraints": [
+    { "id": "pc-c1", "label": "Critical Material Shortage",    "detail": "RC-440 resin at 3.2 DOH. Production stoppage risk in 72 hours. Expedite PO-5532.", "severity": "high"   },
+    { "id": "pc-c2", "label": "Low Utilization (Opportunity)", "detail": "18% spare capacity available. Can absorb rerouted orders from Plant A.",          "severity": "low"    },
+    { "id": "pc-c3", "label": "OTIF Watch",                    "detail": "93% OTIF is near but below 95% target. One late shipment would breach threshold.", "severity": "medium" }
+  ],
+  "trend": {
+    "labels": ["Jan 2","Jan 3","Jan 4","Jan 5","Jan 6","Jan 7","Jan 8","Jan 9","Jan 10","Jan 11","Jan 12","Jan 13","Jan 14","Jan 15"],
+    "utilization": [65, 64, 64, 63, 63, 63, 62, 62, 62, 62, 62, 62, 62, 62],
+    "oee":         [82, 82, 83, 83, 84, 84, 84, 85, 85, 85, 85, 85, 85, 85],
+    "otif":        [95, 94, 94, 94, 93, 93, 93, 93, 93, 93, 93, 93, 93, 93]
+  },
+  "riskDecomposition": [
+    { "category": "Capacity",  "score": 15, "severity": "good" },
+    { "category": "Materials", "score": 88, "severity": "bad"  },
+    { "category": "Quality",   "score": 12, "severity": "good" },
+    { "category": "Service",   "score": 28, "severity": "good" }
+  ]
+}

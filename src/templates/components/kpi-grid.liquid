@@ -1,0 +1,5 @@
+<section class="kpi-grid" id="kpi-grid">
+  {% for kpi in kpis %}
+    {% render 'partials/kpi-tile', kpi: kpi %}
+  {% endfor %}
+</section>

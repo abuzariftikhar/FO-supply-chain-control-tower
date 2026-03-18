@@ -1,0 +1,29 @@
+<div class="kpi-tile kpi-tile--{{ kpi.severity }}">
+  <div class="kpi-tile__header">
+    <span class="kpi-tile__label">{{ kpi.label }}</span>
+    <span class="kpi-tile__badge badge badge--{{ kpi.severity }}">
+      {% if kpi.severity == 'bad' %}⚠️{% elsif kpi.severity == 'warn' %}🔶{% elsif kpi.severity == 'good' %}✅{% else %}ℹ️{% endif %}
+    </span>
+  </div>
+
+  <div class="kpi-tile__value">
+    {{ kpi.value }}<span class="kpi-tile__unit">{{ kpi.unit }}</span>
+  </div>
+
+  <div class="kpi-tile__target">Target: {{ kpi.target }}</div>
+
+  <div class="kpi-tile__variance kpi-tile__variance--{{ kpi.varianceSeverity }}">
+    {{ kpi.variance }}
+  </div>
+
+  <div class="kpi-tile__trend">
+    <span class="trend-indicator trend-indicator--{{ kpi.trend }}">
+      {% if kpi.trend == 'up' %}↑{% elsif kpi.trend == 'down' %}↓{% else %}→{% endif %}
+      {{ kpi.trendLabel }}
+    </span>
+  </div>
+
+  {% if kpi.sparkline %}
+  <div class="kpi-tile__sparkline" data-sparkline="{{ kpi.sparkline | join: ',' }}"></div>
+  {% endif %}
+</div>
