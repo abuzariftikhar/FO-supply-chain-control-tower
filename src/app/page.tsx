@@ -96,10 +96,11 @@ function DashboardContent() {
           />
         );
       case PageId.Capacity:
+        if (!heatmap) return null;
         return (
           <CapacityPage
             kpis={kpis?.kpis ?? []}
-            heatmap={heatmap!}
+            heatmap={heatmap}
             demandCapacityChart={charts['demand-vs-capacity']}
             scheduleChart={charts['schedule']}
           />
