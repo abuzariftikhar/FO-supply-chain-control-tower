@@ -10,6 +10,18 @@ import { OperationsData } from '../types/operations';
 import { PlantProfile } from '../types/plant';
 import { ChartConfig } from '../types/chart';
 import { DashboardConfig } from '../types/dashboard';
+import {
+  getConfig,
+  getAlerts,
+  getKPIs,
+  getHeatmap,
+  getOrders,
+  getSuppliers,
+  getOperations,
+  getPlantProfile,
+  getChart,
+  getActions,
+} from '../actions/cms';
 
 interface DashboardData {
   config: DashboardConfig | null;
@@ -60,28 +72,28 @@ export function useDashboardData(): DashboardData {
           actionsRes,
           ...chartResponses
         ] = await Promise.all([
-          fetch('/api/cms/config').then(r => r.json()),
-          fetch('/api/cms/alerts').then(r => r.json()),
-          fetch('/api/cms/kpis').then(r => r.json()),
-          fetch('/api/cms/heatmap').then(r => r.json()),
-          fetch('/api/cms/orders').then(r => r.json()),
-          fetch('/api/cms/suppliers').then(r => r.json()),
-          fetch('/api/cms/operations').then(r => r.json()),
-          fetch('/api/cms/plant/plant-a').then(r => r.json()),
-          fetch('/api/cms/plant/plant-b').then(r => r.json()),
-          fetch('/api/cms/plant/plant-c').then(r => r.json()),
-          fetch('/api/cms/plant/plant-d').then(r => r.json()),
-          fetch('/api/cms/actions').then(r => r.json()),
-          fetch('/api/cms/chart/waterfall').then(r => r.json()),
-          fetch('/api/cms/chart/demand-vs-capacity').then(r => r.json()),
-          fetch('/api/cms/chart/otif-trend').then(r => r.json()),
-          fetch('/api/cms/chart/backorder').then(r => r.json()),
-          fetch('/api/cms/chart/doh').then(r => r.json()),
-          fetch('/api/cms/chart/aging').then(r => r.json()),
-          fetch('/api/cms/chart/supplier-risk').then(r => r.json()),
-          fetch('/api/cms/chart/schedule').then(r => r.json()),
-          fetch('/api/cms/chart/quality').then(r => r.json()),
-          fetch('/api/cms/chart/wip').then(r => r.json()),
+          getConfig(),
+          getAlerts(),
+          getKPIs(),
+          getHeatmap(),
+          getOrders(),
+          getSuppliers(),
+          getOperations(),
+          getPlantProfile('plant-a'),
+          getPlantProfile('plant-b'),
+          getPlantProfile('plant-c'),
+          getPlantProfile('plant-d'),
+          getActions(),
+          getChart('waterfall'),
+          getChart('demand-vs-capacity'),
+          getChart('otif-trend'),
+          getChart('backorder'),
+          getChart('doh'),
+          getChart('aging'),
+          getChart('supplier-risk'),
+          getChart('schedule'),
+          getChart('quality'),
+          getChart('wip'),
         ]);
 
         const chartIds = [
