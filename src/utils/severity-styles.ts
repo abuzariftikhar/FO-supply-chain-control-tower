@@ -57,3 +57,21 @@ export const topbarStatusClasses: Record<string, string> = {
   watch:    'bg-warn-bg border-warn text-warn',
   critical: 'bg-bad-bg border-bad text-bad',
 };
+
+export const constraintBorderClasses: Record<string, string> = {
+  high:   'border-l-[3px] border-l-bad',
+  medium: 'border-l-[3px] border-l-warn',
+  low:    'border-l-[3px] border-l-good',
+};
+
+export const riskFillClasses: Record<string, string> = {
+  bad:  'bg-bad',
+  warn: 'bg-warn',
+  good: 'bg-good',
+};
+
+export const riskScoreClasses: Record<string, string> = {
+  bad:  'text-bad',
+  warn: 'text-warn',
+  good: 'text-good',
+};

@@ -11,6 +11,7 @@ import { Badge } from '../dashboard/Badge';
 import { ConstraintSeverity, Severity } from '../../enums';
 import { RiskCategoryColorMap } from '../../lib/enum-helpers';
 import { RiskCategory } from '../../enums';
+import { constraintBorderClasses, riskFillClasses, riskScoreClasses } from '../../utils/severity-styles';
 import {
   Chart, CategoryScale, LinearScale, LineElement, PointElement,
   Legend, Filler, LineController, Tooltip,
@@ -84,24 +85,6 @@ export function PlantPage({ plant, allPlants, onSelectPlant }: PlantPageProps) {
 
     return () => { trendChartRef.current?.destroy(); };
   }, [plant]);
-
-  const constraintBorderClasses: Record<string, string> = {
-    high:   'border-l-[3px] border-l-bad',
-    medium: 'border-l-[3px] border-l-warn',
-    low:    'border-l-[3px] border-l-good',
-  };
-
-  const riskFillClasses: Record<string, string> = {
-    bad:  'bg-bad',
-    warn: 'bg-warn',
-    good: 'bg-good',
-  };
-
-  const riskScoreClasses: Record<string, string> = {
-    bad:  'text-bad',
-    warn: 'text-warn',
-    good: 'text-good',
-  };
 
   return (
     <div className="min-h-[calc(100vh-64px-2.5rem)]">
