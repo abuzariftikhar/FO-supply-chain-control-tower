@@ -46,10 +46,10 @@ export function SearchBar({ results, onSearch, query }: SearchBarProps) {
   }, []);
 
   return (
-    <div className="topbar__search">
+    <div className="relative">
       <input
         ref={inputRef}
-        className="topbar__search-input"
+        className="bg-card border border-border-subtle rounded-lg text-text-primary px-3 py-[0.35rem] text-xs w-[200px] outline-none transition-all duration-200 ease-in-out focus:border-accent focus:w-[260px] placeholder:text-muted"
         type="search"
         placeholder="Search plants, alerts, orders…"
         value={query}
@@ -61,24 +61,24 @@ export function SearchBar({ results, onSearch, query }: SearchBarProps) {
       />
       {isOpen && results.length > 0 && (
         <ul
-          className="topbar__search-results"
+          className="absolute top-[calc(100%+4px)] left-0 right-0 min-w-[320px] bg-panel backdrop-blur-[12px] border border-border-subtle rounded-lg shadow-panel list-none z-[200] max-h-[300px] overflow-y-auto"
           role="listbox"
           aria-label="Search results"
         >
           {results.slice(0, 8).map(result => (
             <li
               key={result.id}
-              className="search-result"
+              className="px-3 py-2 cursor-pointer border-b border-border-subtle transition-all duration-200 ease-in-out last:border-b-0 hover:bg-card"
               role="option"
               onClick={() => handleSelect(result)}
             >
-              <span className="search-result__type">
+              <span className="text-[0.6rem] text-accent uppercase tracking-[0.05em]">
                 {SearchResultTypeIconMap[result.type as SearchResultType]}{' '}
                 {result.type}
               </span>
-              <span className="search-result__label">{result.label}</span>
+              <span className="text-[0.8rem] font-semibold block">{result.label}</span>
               {result.sublabel && (
-                <span className="search-result__sublabel">{result.sublabel}</span>
+                <span className="text-[0.7rem] text-muted block">{result.sublabel}</span>
               )}
             </li>
           ))}

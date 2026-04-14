@@ -24,7 +24,7 @@ export function CapacityPage({
   scheduleChart,
 }: CapacityPageProps) {
   return (
-    <div className="page page--capacity">
+    <div className="min-h-[calc(100vh-64px-2.5rem)]">
       <KPIGrid kpis={kpis} />
 
       <Panel title="🗺️ Capacity Heatmap — Plant × Metric" id="heatmap-panel">
@@ -32,12 +32,12 @@ export function CapacityPage({
       </Panel>
 
       <ContentSection>
-        <div className="content-section__primary">
+        <div className="min-w-0">
           <Panel title="📊 Demand vs Capacity (14D)" id="demand-capacity-panel">
             <ChartWrapper config={demandCapacityChart} />
           </Panel>
         </div>
-        <div className="content-section__secondary">
+        <div className="min-w-0">
           <Panel title="📋 Schedule Adherence" id="schedule-panel">
             <ChartWrapper config={scheduleChart} />
           </Panel>

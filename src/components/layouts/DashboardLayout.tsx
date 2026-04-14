@@ -28,7 +28,7 @@ export function DashboardLayout({
   const { modal, isModalOpen, closeModal } = useDashboard();
 
   return (
-    <div className="dashboard-layout">
+    <div className="flex flex-col min-h-screen">
       <TopBar
         config={config}
         filterConfigs={filterConfigs}
@@ -36,7 +36,7 @@ export function DashboardLayout({
         searchQuery={searchQuery}
         onSearch={onSearch}
       />
-      <main className="dashboard-main">{children}</main>
+      <main className="flex-1 p-5 mt-[64px] overflow-y-auto">{children}</main>
       {modal && (
         <Modal modal={modal} isOpen={isModalOpen} onClose={closeModal} />
       )}

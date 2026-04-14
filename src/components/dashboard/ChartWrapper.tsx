@@ -88,16 +88,16 @@ export function ChartWrapper({ config, className }: ChartWrapperProps) {
   }, [config]);
 
   return (
-    <div className={`chart-container ${className ?? ''}`}>
+    <div className={`relative ${className ?? ''}`}>
       {config.title && (
-        <div className="chart-container__header">
-          <h3 className="chart-container__title">{config.title}</h3>
+        <div className="mb-3">
+          <h3 className="text-[0.8rem] font-bold text-text-primary">{config.title}</h3>
           {config.description && (
-            <p className="chart-container__description">{config.description}</p>
+            <p className="text-[0.65rem] text-muted mt-[0.2rem]">{config.description}</p>
           )}
         </div>
       )}
-      <div className="chart-container__canvas-wrapper">
+      <div className="relative h-[240px]">
         <canvas ref={canvasRef} id={`chart-${config.id}`} />
       </div>
     </div>

@@ -10,6 +10,6 @@ interface ContentSectionProps {
 
 export function ContentSection({ children, className }: ContentSectionProps) {
   return (
-    <div className={cn('content-section', className)}>{children}</div>
+    <div className={cn('grid grid-cols-[2fr_1fr] gap-4 mb-4 max-lg:grid-cols-1 [&>*]:min-w-0', className)}>{children}</div>
   );
 }

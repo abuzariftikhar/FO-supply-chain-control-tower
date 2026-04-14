@@ -17,15 +17,20 @@ interface DataTableProps {
   className?: string;
 }
 
+const rowSeverityBorderClasses: Record<string, string> = {
+  bad:  '[&>td:first-child]:border-l-2 [&>td:first-child]:border-l-bad',
+  warn: '[&>td:first-child]:border-l-2 [&>td:first-child]:border-l-warn',
+};
+
 export function DataTable({ columns, rows, title, className }: DataTableProps) {
   return (
-    <div className={cn('data-table-wrapper', className)}>
-      {title && <h3 className="data-table__title">{title}</h3>}
-      <table className="data-table">
+    <div className={cn('overflow-x-auto', className)}>
+      {title && <h3>{title}</h3>}
+      <table className="w-full border-collapse text-xs">
         <thead>
           <tr>
             {columns.map(col => (
-              <th key={col.key} className="data-table__th">
+              <th key={col.key} className="px-3 py-2 text-left text-[0.6rem] font-bold uppercase tracking-[0.06em] text-muted border-b border-border-subtle whitespace-nowrap">
                 {col.label}
               </th>
             ))}
@@ -35,13 +40,16 @@ export function DataTable({ columns, rows, title, className }: DataTableProps) {
           {rows.map((row, rowIdx) => (
             <tr
               key={rowIdx}
-              className={`data-table__row data-table__row--${String(row.severity ?? '')}`}
+              className={cn(
+                'hover:bg-white/[0.02] last:[&>td]:border-b-0',
+                rowSeverityBorderClasses[String(row.severity ?? '')]
+              )}
             >
               {columns.map(col => {
                 const field = col.field ?? col.key;
                 const value = row[field];
                 return (
-                  <td key={col.key} className="data-table__td">
+                  <td key={col.key} className="px-3 py-2 border-b border-white/[0.04] align-middle">
                     {col.render
                       ? col.render(value, row)
                       : String(value ?? '')}

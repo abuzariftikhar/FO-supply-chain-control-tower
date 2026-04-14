@@ -44,11 +44,11 @@ export function ServicePage({
   backorderChart,
 }: ServicePageProps) {
   return (
-    <div className="page page--service">
+    <div className="min-h-[calc(100vh-64px-2.5rem)]">
       <KPIGrid kpis={kpis} />
 
       <ContentSection>
-        <div className="content-section__primary">
+        <div className="min-w-0">
           <Panel title="📈 OTIF Trend (14D)" id="otif-panel">
             <ChartWrapper config={otifChart} />
           </Panel>
@@ -56,7 +56,7 @@ export function ServicePage({
             <ChartWrapper config={backorderChart} />
           </Panel>
         </div>
-        <div className="content-section__secondary">
+        <div className="min-w-0">
           <Panel title="⚠️ Orders at Risk" id="orders-panel">
             <DataTable
               columns={orderColumns}

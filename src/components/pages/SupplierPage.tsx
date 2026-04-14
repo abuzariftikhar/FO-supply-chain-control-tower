@@ -44,16 +44,16 @@ export function SupplierPage({
   supplierRiskChart,
 }: SupplierPageProps) {
   return (
-    <div className="page page--supplier">
+    <div className="min-h-[calc(100vh-64px-2.5rem)]">
       <KPIGrid kpis={kpis} />
 
       <ContentSection>
-        <div className="content-section__primary">
+        <div className="min-w-0">
           <Panel title="🗺️ Supplier Risk Matrix" id="supplier-risk-panel">
             <ChartWrapper config={supplierRiskChart} />
           </Panel>
         </div>
-        <div className="content-section__secondary">
+        <div className="min-w-0">
           <Panel title="🤝 Supplier Exposure" id="supplier-table-panel">
             <DataTable
               columns={supplierColumns}

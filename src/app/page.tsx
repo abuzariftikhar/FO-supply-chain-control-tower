@@ -68,8 +68,8 @@ function DashboardContent() {
 
   if (isLoading) {
     return (
-      <div className="loading-screen">
-        <div className="loading-screen__spinner" />
+      <div className="flex flex-col items-center justify-center min-h-screen gap-4 text-muted">
+        <div className="w-10 h-10 border-[3px] border-border-subtle border-t-accent rounded-full animate-spin" />
         <p>Loading Supply Chain Control Tower…</p>
       </div>
     );
@@ -77,7 +77,7 @@ function DashboardContent() {
 
   if (error || !config) {
     return (
-      <div className="error-screen">
+      <div className="flex flex-col items-center justify-center min-h-screen gap-4 text-muted">
         <p>⚠️ Failed to load dashboard: {error}</p>
       </div>
     );
