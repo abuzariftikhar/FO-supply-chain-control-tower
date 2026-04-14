@@ -64,9 +64,9 @@ const materialColumns = [
 
 export function OpsPage({ operations, qualityChart }: OpsPageProps) {
   return (
-    <div className="page page--ops">
+    <div className="min-h-[calc(100vh-64px-2.5rem)]">
       <ContentSection>
-        <div className="content-section__col">
+        <div className="min-w-0">
           <Panel title="⚙️ Machine Downtime" id="downtime-panel">
             <DataTable
               columns={downtimeColumns}
@@ -74,7 +74,7 @@ export function OpsPage({ operations, qualityChart }: OpsPageProps) {
             />
           </Panel>
         </div>
-        <div className="content-section__col">
+        <div className="min-w-0">
           <Panel title="👷 Labor Coverage" id="labor-panel">
             <DataTable
               columns={laborColumns}
@@ -82,7 +82,7 @@ export function OpsPage({ operations, qualityChart }: OpsPageProps) {
             />
           </Panel>
         </div>
-        <div className="content-section__col">
+        <div className="min-w-0">
           <Panel title="📦 Materials Status" id="materials-panel">
             <DataTable
               columns={materialColumns}
@@ -93,7 +93,7 @@ export function OpsPage({ operations, qualityChart }: OpsPageProps) {
       </ContentSection>
 
       <ContentSection>
-        <div className="content-section__primary">
+        <div className="min-w-0">
           <Panel title="🔬 Quality Metrics — First Pass Yield" id="quality-panel">
             <ChartWrapper config={qualityChart} />
           </Panel>

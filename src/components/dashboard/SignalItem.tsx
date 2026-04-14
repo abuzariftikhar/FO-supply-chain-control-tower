@@ -9,9 +9,9 @@ interface SignalItemProps {
 
 export function SignalItem({ signal }: SignalItemProps) {
   return (
-    <div className="signal-item">
-      <span className="signal-item__label">{signal.label}</span>
-      <span className="signal-item__value">{signal.value}</span>
+    <div className="flex justify-between items-center py-[0.35rem] border-b border-border-subtle text-[0.7rem] last:border-b-0">
+      <span className="text-muted">{signal.label}</span>
+      <span className="font-semibold text-text-primary">{signal.value}</span>
     </div>
   );
 }

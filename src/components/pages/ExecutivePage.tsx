@@ -41,13 +41,13 @@ export function ExecutivePage({
   }
 
   return (
-    <div className="page page--executive">
+    <div className="min-h-[calc(100vh-64px-2.5rem)]">
       <AlertWall alerts={alerts} />
 
       <KPIGrid kpis={kpis} />
 
       <ContentSection>
-        <div className="content-section__primary">
+        <div className="min-w-0">
           <Panel title="🎯 Decision Actions" id="actions-panel">
             {(actions as Array<{
               id: string;
@@ -65,7 +65,7 @@ export function ExecutivePage({
           </Panel>
         </div>
 
-        <div className="content-section__secondary">
+        <div className="min-w-0">
           <Panel title="💹 Revenue Waterfall" id="waterfall-panel">
             <ChartWrapper config={waterfallChart} />
           </Panel>

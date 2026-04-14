@@ -29,11 +29,11 @@ export function FilterBar({ filterConfigs }: FilterBarProps) {
   };
 
   return (
-    <div className="topbar__filters">
+    <div className="flex gap-2">
       {filterConfigs.map(config => (
-        <div key={config.type} className="filter-select">
+        <div key={config.type}>
           <select
-            className="filter-select__input"
+            className="bg-card border border-border-subtle rounded-lg text-text-primary px-2.5 py-[0.3rem] text-[0.7rem] outline-none cursor-pointer focus:border-accent"
             id={`filter-${config.type}`}
             name={config.type}
             value={activeValues[config.type] ?? ''}

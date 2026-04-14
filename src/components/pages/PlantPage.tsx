@@ -11,6 +11,7 @@ import { Badge } from '../dashboard/Badge';
 import { ConstraintSeverity, Severity } from '../../enums';
 import { RiskCategoryColorMap } from '../../lib/enum-helpers';
 import { RiskCategory } from '../../enums';
+import { constraintBorderClasses, riskFillClasses, riskScoreClasses } from '../../utils/severity-styles';
 import {
   Chart, CategoryScale, LinearScale, LineElement, PointElement,
   Legend, Filler, LineController, Tooltip,
@@ -86,15 +87,24 @@ export function PlantPage({ plant, allPlants, onSelectPlant }: PlantPageProps) {
   }, [plant]);
 
   return (
-    <div className="page page--plant">
-      <div className="plant-selector">
+    <div className="min-h-[calc(100vh-64px-2.5rem)]">
+      <div className="flex gap-2 flex-wrap mb-4">
         {allPlants.map(p => (
           <button
             key={p.id}
-            className={`plant-pill${p.id === plant.id ? ' plant-pill--active' : ''}`}
+            className={`flex items-center gap-[0.4rem] px-3 py-[0.35rem] border rounded-[20px] text-[0.72rem] font-semibold cursor-pointer transition-all duration-200 ease-in-out ${
+              p.id === plant.id
+                ? 'bg-accent border-accent text-white'
+                : 'bg-card border-border-subtle text-muted hover:border-accent hover:text-text-primary'
+            }`}
             onClick={() => onSelectPlant(p.id as PlantId)}
           >
-            <span className={`badge badge--${p.overallSeverity}`} />
+            <span className={`inline-flex items-center px-[0.45rem] py-[0.15rem] rounded text-[0.6rem] font-extrabold uppercase tracking-[0.07em] ${
+              p.overallSeverity === 'bad' ? 'bg-bad-bg text-bad border border-bad' :
+              p.overallSeverity === 'warn' ? 'bg-warn-bg text-warn border border-warn' :
+              p.overallSeverity === 'good' ? 'bg-good-bg text-good border border-good' :
+              'bg-info-bg text-info border border-info'
+            }`} />
             {p.id}
           </button>
         ))}
@@ -104,7 +114,7 @@ export function PlantPage({ plant, allPlants, onSelectPlant }: PlantPageProps) {
       <KPIGrid kpis={plant.kpis} />
 
       <ContentSection>
-        <div className="content-section__primary">
+        <div className="min-w-0">
           <Panel title="📈 Performance Trends (14D)" id="plant-trend-panel">
             <div style={{ height: '300px', position: 'relative' }}>
               <canvas ref={trendCanvasRef} />
@@ -112,14 +122,16 @@ export function PlantPage({ plant, allPlants, onSelectPlant }: PlantPageProps) {
           </Panel>
         </div>
 
-        <div className="content-section__secondary">
+        <div className="min-w-0">
           <Panel title="⚠️ Constraints & Risks" id="constraints-panel">
             {plant.constraints.map(c => (
               <div
                 key={c.id}
-                className={`constraint-item constraint-item--${c.severity}`}
+                className={`px-3 py-2.5 bg-card border border-border-subtle rounded-lg mb-2 ${
+                  constraintBorderClasses[c.severity] ?? ''
+                }`}
               >
-                <div className="constraint-item__header">
+                <div className="flex items-center gap-2 mb-[0.3rem]">
                   <Badge
                     severity={constraintSeverityToSeverity[c.severity as ConstraintSeverity] ?? Severity.Info}
                   >
@@ -127,25 +139,25 @@ export function PlantPage({ plant, allPlants, onSelectPlant }: PlantPageProps) {
                   </Badge>
                   <strong>{c.label}</strong>
                 </div>
-                <p className="constraint-item__detail">{c.detail}</p>
+                <p className="text-[0.7rem] text-muted leading-[1.4]">{c.detail}</p>
               </div>
             ))}
           </Panel>
 
           <Panel title="📊 Risk Decomposition" id="risk-panel">
             {plant.riskDecomposition.map(risk => (
-              <div key={risk.category} className="risk-bar">
-                <span className="risk-bar__label">{risk.category}</span>
-                <div className="risk-bar__track">
+              <div key={risk.category} className="flex items-center gap-3 mb-2">
+                <span className="text-[0.7rem] font-semibold w-[80px] shrink-0 text-muted">{risk.category}</span>
+                <div className="flex-1 h-2 bg-white/5 rounded overflow-hidden">
                   <div
-                    className={`risk-bar__fill risk-bar__fill--${risk.severity}`}
+                    className={`h-full rounded transition-[width] duration-[0.6s] ease-in-out ${riskFillClasses[risk.severity] ?? ''}`}
                     style={{
                       width: `${risk.score}%`,
                       backgroundColor: RiskCategoryColorMap[risk.category as RiskCategory],
                     }}
                   />
                 </div>
-                <span className={`risk-bar__score risk-bar__score--${risk.severity}`}>
+                <span className={`text-[0.7rem] font-bold w-8 text-right ${riskScoreClasses[risk.severity] ?? ''}`}>
                   {risk.score}
                 </span>
               </div>
